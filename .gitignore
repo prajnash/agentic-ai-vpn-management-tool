@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
+
+# Credentials — never commit these
+*.json
+service-account*.json
+application_default_credentials.json
+
+# Test files
+test_main.py
+
+# OS files
+.DS_Store
