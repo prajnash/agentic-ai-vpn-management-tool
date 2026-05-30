@@ -25,7 +25,7 @@ No human in the loop. No delay. One conversation.
 
 ## Architecture
 
-![System Architecture](architecture.svg)
+![System Architecture](./architecture.svg)
 
 The system is built in layers, each with a clear responsibility:
 
