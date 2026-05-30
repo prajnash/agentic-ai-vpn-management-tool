@@ -1,14 +1,14 @@
 # 🔐 VPN Management Tool — Agentic AI on GCP
 
-> An AI-powered IT support agent that handles VPN issues end-to-end — no human helpdesk needed.
+> An AI-powered agent that handles VPN issues end-to-end — no human helpdesk needed.
 
 ---
 
 ## What does this agent do?
 
-Before building this, an IT support team had to manually handle every VPN-related complaint — checking access, raising tickets, reactivating accounts. This system automates all of that through a conversational AI agent.
+ An IT support team, which had to manually handle every VPN-related complaint — checking access, raising tickets, reactivating accounts: This system automates all of that through a conversational AI agent.
 
-**First, add your VPN guide document to GCS.** Upload your company's VPN reference PDF to a Cloud Storage bucket (this project uses `agenticai-test12345`). The agent uses this as its first source of truth before doing anything else.
+**First, add your VPN guide document to GCS.** Upload your company's VPN reference PDF to a Cloud Storage bucket. The agent uses this as its first source of truth before doing anything else.
 
 When an employee reports a VPN problem, here is exactly what happens — automatically, in a single chat conversation:
 
@@ -563,18 +563,3 @@ vpn_management_tool/
 | `GOOGLE_CLOUD_PROJECT` | `testingproject-456103` | Tells the Firestore client which GCP project to connect to |
 | `FIRESTORE_DATABASE` | `userentry` | The named database — without this it defaults to `(default)` and can't find your collections |
 
----
-
-## Common Issues
-
-**Agent says "Sorry something went wrong" repeatedly**
-The OpenAPI schema in the tool definition is missing the operation the agent is trying to call. Open the tool in Conversational Agents, check the schema, and confirm all three paths (`/raise_support_case`, `/update_ticket`, `/check_vpn_user_access`) are present.
-
-**Cloud Run returns 404 on `/`**
-Expected — there is no route defined for the root path. Use `/health` to test liveness.
-
-**Firestore writes go to the wrong collection**
-Check that `FIRESTORE_DATABASE=userentry` is set in your Cloud Run environment variables. If missing, the client connects to the `(default)` database and creates new collections there instead.
-
-**Agent creates a new user entry even though the employee exists**
-The employee ID passed to `raise_support_case` doesn't match the Firestore document ID exactly. Document IDs are case-sensitive. Confirm the employee typed their ID correctly.
