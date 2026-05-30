@@ -1,4 +1,4 @@
-# 🔐 VPN Management Tool — Agentic AI on GCP
+# 🔐 Agentic AI on GCP - VPN Management Tool
 
 > An AI-powered agent that handles VPN issues end-to-end — no human helpdesk needed.
 
