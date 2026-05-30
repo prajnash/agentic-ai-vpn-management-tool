@@ -560,6 +560,6 @@ vpn_management_tool/
 
 | Variable | Example Value | Why it's needed |
 |---|---|---|
-| `GOOGLE_CLOUD_PROJECT` | `testingproject-456103` | Tells the Firestore client which GCP project to connect to |
+| `GOOGLE_CLOUD_PROJECT` | `projectname` | Tells the Firestore client which GCP project to connect to |
 | `FIRESTORE_DATABASE` | `userentry` | The named database — without this it defaults to `(default)` and can't find your collections |
 
